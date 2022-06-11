@@ -1,7 +1,8 @@
+import 'package:app_033_hive_database_1/database/hive_1.dart';
 import 'package:app_033_hive_database_1/models/sign%20up%20page.dart';
+import 'package:app_033_hive_database_1/pages/new%20sign%20in.dart';
 import 'package:app_033_hive_database_1/pages/signIn_page.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 
 class SignUpPage extends StatefulWidget {
   static const String id = "signuppage";
@@ -23,25 +24,13 @@ class _SignUpPageState extends State<SignUpPage> {
     String number = inputNumber.text.toString().trim();
     String address = inputAddress.text.toString().trim();
 
-    var myBox = Hive.box("userdatabase");
-
-    SignUp signUp = new SignUp(email: email,number: number,address: address);
-
-    myBox.put("signUp", signUp.toJson());
-
-    SignUp signup2 = SignUp.formJson(myBox.get("signUp"));
-
-    print("email : ${signup2.email}");
-    print("number : ${signup2.number}");
-    print("address : ${signup2.address}");
-
-  //   myBox.put("email", email);
-  //   myBox.put("number", number);
-  //   myBox.put("address", address);
-  //   print("email : ${myBox.get("email")}");
-  //   print("number : ${myBox.get("number")}");
-  //   print("address : ${myBox.get("address")}");
-   }
+    SignUp su = new SignUp(email: email, number: number, address: address);
+    Hive_db_SU().add_su(su);
+    SignUp _su = Hive_db_SU().get_obj_su();
+    print("email : ${_su.email}");
+    print("number : ${_su.number}");
+    print("address : ${_su.address}");
+  }
 
   @override
   Widget build(BuildContext context) {

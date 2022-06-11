@@ -1,18 +1,18 @@
-import 'package:app_033_hive_database_1/database/hive_1.dart';
-import 'package:app_033_hive_database_1/models/sign%20in%20page.dart';
-import 'package:app_033_hive_database_1/pages/signUp_page.dart';
+import 'package:app_033_hive_database_1/pages/signIn_page.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatefulWidget {
-  static const String id = "singinpage";
-
-  const SignInPage({Key? key}) : super(key: key);
+import '../database/hive_1.dart';
+import '../models/sign in page.dart';
+class New_Si extends StatefulWidget {
+  static const String id = "newsingin";
+  const New_Si({Key? key}) : super(key: key);
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<New_Si> createState() => _New_SiState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _New_SiState extends State<New_Si> {
+
   Color yashil = Color(0xff138D75);
   var inputEmail = TextEditingController();
   var inputPassword = TextEditingController();
@@ -56,13 +56,13 @@ class _SignInPageState extends State<SignInPage> {
                         Text(
                           "Welcome",
                           style:
-                              TextStyle(color: Color(0xffA2D9CE), fontSize: 22),
+                          TextStyle(color: Color(0xffA2D9CE), fontSize: 22),
                         ),
                         SizedBox(
                           height: 5,
                         ),
                         Text(
-                          "Sign In",
+                          "New Sign In",
                           style: TextStyle(color: Colors.white, fontSize: 35),
                         ),
                       ],
@@ -175,7 +175,7 @@ class _SignInPageState extends State<SignInPage> {
                           child: FlatButton(
                             onPressed: () {
                               _SignIn();
-                             // hive1.sign_in(email: inputEmail,password: inputPassword);
+                              // hive1.sign_in(email: inputEmail,password: inputPassword);
                             },
                             child: Center(
                               child: Text(
@@ -210,7 +210,7 @@ class _SignInPageState extends State<SignInPage> {
                                   color: Colors.white,
                                   image: DecorationImage(
                                       image:
-                                          AssetImage("assets/images/img_4.png"),
+                                      AssetImage("assets/images/img_4.png"),
                                       fit: BoxFit.cover)),
                             ),
                             Container(
@@ -219,7 +219,7 @@ class _SignInPageState extends State<SignInPage> {
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image:
-                                          AssetImage("assets/images/img_2.png"),
+                                      AssetImage("assets/images/img_2.png"),
                                       fit: BoxFit.cover)),
                             ),
                             Container(
@@ -251,10 +251,10 @@ class _SignInPageState extends State<SignInPage> {
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushReplacementNamed(
-                                    context, SignUpPage.id);
+                                    context, SignInPage.id);
                               },
                               child: Text(
-                                "Sign Up",
+                                "Sign In",
                                 style: TextStyle(color: yashil),
                               ),
                             ),
